@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hide</title>
+</head>
+<body>
+<button class="btn">隐藏</button>
+<p></p>
+<img class="img" src="../image/1.jpg" alt="图片1" width="400px">
+
+</body>
+<script>
+    window.onload = function () {
+        var btn = document.getElementsByClassName("btn")[0];
+        var img = document.getElementsByClassName('img')[0]
+        btn.onclick = function () {
+            if (btn.innerText === '隐藏') {
+                img.style.display = 'none';
+                btn.innerText = '显示';
+            } else {
+                img.style.display = 'block';
+                btn.innerHTML = '隐藏';
+
+            }
+
+        }
+        console.log(btn.innerHTML);
+
+    }
+</script>
+</html>

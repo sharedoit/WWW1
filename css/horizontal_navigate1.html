@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>horizontal navigate</title>
+</head>
+<style>
+    ul{
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+        background-color: #f3f3f3;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        border: 1px solid #e7e7e7;
+    }
+    ul li{
+        float: left;
+        border-right: 1px solid #bbb;
+
+
+    }
+    ul li:last-child{
+        border-right: none;
+    }
+    ul li a{
+        display: block;
+        color: #666;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    ul li a:hover{
+        background-color: #111;
+    }
+    .last_li{
+        float: right;
+    }
+    .active{
+        background-color: #4caf50;
+    }
+
+
+</style>
+
+<body>
+
+<ul>
+    <li><a href="#">主页</a></li>
+    <li><a href="#">新闻</a></li>
+    <li><a href="#">联系</a></li>
+    <li class="last_li"><a href="#" class="active">关于</a></li>
+</ul>
+</body>
+</html>

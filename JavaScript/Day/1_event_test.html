@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event test</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin: 100px;
+        position: absolute;
+    }
+</style>
+<body>
+<div id="box">
+
+</div>
+<script>
+    window.onload = function () {
+        var box = $('box')
+        box.onmousemove = function (event) {
+            var e = event || window.event;
+            var clientX = e.clientX;
+            var clientY = e.clientY;
+            var offsetX = box.offsetLeft;
+            var offsetY = box.offsetTop;
+            var x = clientX - offsetX;
+            var y = clientY - offsetY;
+            console.log('距box距离：' + x, y);
+            console.log('Page：'+e.pageX, e.pageX);
+            // console.log('可视区:'+e.clientX, e.clientY);
+        }
+
+    }
+
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+</script>
+</body>
+</html>

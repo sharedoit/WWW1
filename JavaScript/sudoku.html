@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sudoku</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        #top {
+            padding: 20px;
+        }
+
+        #bottom {
+            position: relative;
+
+        }
+
+        .box {
+            /*position: absolute;*/
+            width: 220px;
+            height: 360px;
+            margin: 0px 15px 15px 0px;
+            background-color: #E8E8E8;
+        }
+        .box p:last-child{
+            font-size: 13px;
+            color: orange;
+        }
+
+    </style>
+</head>
+<body>
+<div id="top">
+    <button>3列</button>
+    <button>4列</button>
+    <button>5列</button>
+</div>
+<div id="bottom">
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+    <div class="box">
+        <img src="../image/1.jpg" width="220px" height="306">
+        <p>oneoneoneoneone</p>
+        <p>111111111111111</p>
+    </div>
+
+</div>
+<script>
+    window.onload=function () {
+       var btns= $("top").children;
+       var bottom=$('bottom')
+        // console.log(btns,bottom);
+        btns[0].onclick=function(){
+            j_flex(3,bottom);
+        }
+        btns[1].onclick=function(){
+            j_flex(4,bottom);
+        }
+        btns[2].onclick=function () {
+            j_flex(5,bottom);
+        }
+
+        function j_flex(allcols,parentNode) {
+            // alert(3);
+            var boxW=220 , boxH=360, marginXY=15
+            for (var i=0;i<parentNode.children.length;i++){
+                var row=parseInt(i/allcols);
+                var cols=parseInt(i%allcols);
+
+                // console.log(row, cols);
+                //    盒子定位
+                var currentBox=parentNode.children[i];
+                currentBox.style.position='absolute';
+                currentBox.style.left=(boxW+marginXY)*cols +'px';
+                currentBox.style.top=(boxH+marginXY)*row + 'px';
+            }
+
+        }
+
+
+    }
+    function $(id) {
+        return typeof id==="string"?document.getElementById(id):null;
+    }
+</script>
+</body>
+</html>

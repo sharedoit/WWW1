@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box {
+        width: 200px;
+        height: 200px;
+    }
+    .box-image{
+        position: relative;
+        width: 400px;
+    }
+    #close{
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div id="box">
+    <button class="btn">按钮</button>
+    <span id="span">
+        <a href="#">hello world</a>
+    </span>
+    <p>我是下一个兄弟节点</p>
+    <div>
+        <span>haha</span>
+    </div>
+</div>
+
+<div class="box-image">
+    <img  id="icon" src="../image/1.jpg" alt="" width="400px">
+    <img id="close" src="../image/2.jpg" alt="" width="40px">
+</div>
+
+<script type="text/html">
+    window.onload=function () {
+    <!--var a=document.getElementsByTagName('a')[0];-->
+    var parentNode=a.parentNode.parentNode;
+    console.log(parentNode);
+    }
+</script>
+<script type="text/html">
+    window.onload = function () {
+        var span = document.getElementById('span');
+        var btn = document.getElementsByClassName('btn')[0];
+        var box = span.parentNode;
+        btn.onclick = function () {
+            box.style.backgroundColor = 'red';
+        }
+
+        // console.log(parentNode);
+        // console.log(span);
+    }
+</script>
+<script type="text/html">
+    window.onload=function () {
+        var close=document.getElementById('close');
+        close.onclick=function () {
+            this.parentNode.style.display='none';
+        }
+    }
+
+</script>
+<script type="text/html">
+    window.onload=function () {
+        var span=document.getElementById('span');
+        var dom=span.nextElementSibling||span.nextSibling;
+        var previous=span.previousElementSibling || span.previousSibling;
+        previous.onclick=function(){
+            console.log('previouseElementSibling');
+        }
+        console.log(previous);
+        console.log(span);
+        console.log(dom);
+    }
+</script>
+<script type="text/html">
+    window.onload=function () {
+        var box=document.getElementById('box');
+        var firstChild=box.firstElementChild || box.firstChild;
+        var lastChild=box.lastElementChild || box.lastChild;
+        console.log(firstChild ,lastChild);
+    }
+</script>
+<script type="text/html">
+    window.onload=function () {
+        var box=document.getElementById('box');
+        var allNodelist=box.childNodes;
+        var newList=[];
+        for (var i=0;i<allNodelist.length;i++){
+            var node=allNodelist[i];
+            if (node.nodeType==1){
+                newList.push(node);
+            }
+        }
+        // console.log(newList);
+
+        var allNode=box.children;
+        console.log(allNode[0]);
+    }
+</script>
+<script>
+    //CURD
+    window.onload=function () {
+
+    }
+</script>
+</body>
+</html>

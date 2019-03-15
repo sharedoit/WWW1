@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transform</title>
+</head>
+<style>
+    #box{
+        width: 90px;
+        height: 90px;
+        background-color: #ff2222;
+        margin: 100px;
+    }
+</style>
+<body>
+<button id="transform">transform</button>
+<div id="box"></div>
+<script>
+    window.onload=function () {
+        var box=$('box')
+        var index=0;
+        $('transform').onclick=function () {
+            index ++;
+            $('box').style.transform='translate('+(index*100)+'px,'+index*50+'px) rotate('+(index*20)+'deg) scale('+(index*1.2)+')';
+        }
+    }
+
+    /**
+     *
+     *
+     * @param id {string}
+     * @returns {any}
+     */
+    function $(id) {
+        return typeof id==="string"?document.getElementById(id):null;
+    }
+</script>
+</body>
+</html>

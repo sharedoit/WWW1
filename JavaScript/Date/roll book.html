@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>roll book</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    #name{
+        font-size: 20px;
+        margin-top: 20px;
+    }
+</style>
+<body>
+<button id="begin">开始点名</button>
+<button id="end">结束点名</button>
+<div id="name">张三</div>
+<script>
+    window.onload=function () {
+        var begin=document.getElementById('begin');
+        var end=document.getElementById('end');
+        var name=document.getElementById('name');
+        var timer=null;
+
+
+        var nameArray=['理想','未来','小明','明月']
+        name.innerText=nameArray[0];
+        begin.onclick=function () {
+            clearInterval(timer);
+            timer=setInterval(function () {
+                var s_index=parseInt(Math.random()*nameArray.length)
+                // console.log(s_index);
+                name.innerText=nameArray[s_index];
+            },20)
+        }
+        end.onclick=function () {
+            clearInterval(timer);
+        }
+
+
+    }
+</script>
+</body>
+</html>

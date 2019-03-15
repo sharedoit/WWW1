@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{layout name='layout'}
+</head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+<body>
+{volist name='list2' id='user'}
+用户id：{$user.user_id} 用户名：{$user.nickname}</br>
+
+{/volist}
+
+{$list2->render()}
+
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>underscore</title>
+</head>
+<script src="underscore.js"></script>
+<script>
+    var dataArray=['张山','男',1987,'hello','world'];
+    _.each(dataArray,function (item,index) {
+        console.log(item,index);
+        // console.log(arr);
+    })
+    console.log(_.without(dataArray, '张山'));
+    console.log(_.random(-5, 5));
+
+
+</script>
+<body>
+
+</body>
+</html>

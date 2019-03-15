@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+</head>
+<script>
+    function myFunction() {
+        x=document.getElementById('demo')
+        x.innerHTML='hello JavaScript'
+
+    }
+
+    var person={
+        fname:'john',
+        lname:'doe',
+        age:25
+    }
+    for (x in person){
+        document.write('<br>')
+        document.write(x+':'+person[x])
+
+    }
+    document.write('<br>')
+    document.write('日期：'+String(new Date())+'<br>')
+
+</script>
+<body>
+<button type="button" onclick="myFunction()">myFunction</button>
+<p id="demo"></p>
+
+</body>
+</html>

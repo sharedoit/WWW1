@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>panel</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #panel {
+        width: 400px;
+        box-shadow: 0 0 10px #000;
+        margin: 100px auto;
+        padding: 20px;
+    }
+
+    .panel-head {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .panel-foot {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+<body>
+<div id="panel">
+    <section class="panel-head">
+        <h2>经典歌曲</h2>
+        <hr>
+    </section>
+    <section class="panel-content">
+        <input type="checkbox">1真真的爱<br/>
+        <input type="checkbox">2山花朵朵<br/>
+        <input type="checkbox">3誓言<br/>
+        <input type="checkbox">4望春风<br/>
+        <input type="checkbox">5幸福的 <br/>
+    </section>
+    <section class="panel-foot">
+        <hr>
+        <button id="allSelect">全选</button>
+        <button id="cancelSelect">取消选中</button>
+        <button id="reverseSelect">反选</button>
+    </section>
+</div>
+
+<script>
+    window.onload = function () {
+        function $(id) {
+            return typeof id === "string" ? document.getElementById(id) : null;
+        }
+
+        var allSelect = $('allSelect');
+        var cancelSelect = $('cancelSelect');
+        var reverseSelect = $('reverseSelect');
+        // console.log(allSelect, cancelSelect, reverseSelect);
+        var panel_cntent=document.getElementsByClassName('panel-content')[0]
+        // console.log(panel_cntent);
+        var allCheckBox=panel_cntent.getElementsByTagName('input');
+        // console.log(allCheckBox);
+        allSelect.onclick=function () {
+            for (var i=0;i<allCheckBox.length;i++){
+                  var checkBox=allCheckBox[i];
+                  checkBox.checked=true;
+            }
+        }
+        cancelSelect.onclick=function () {
+            for (var i=0;i<allCheckBox.length;i++){
+                var checkBox=allCheckBox[i];
+                checkBox.checked=false;
+            }
+        }
+        reverseSelect.onclick=function () {
+            for (var i=0;i<allCheckBox.length;i++){
+                var checkBox=allCheckBox[i];
+                checkBox.checked=!checkBox.checked;
+            }
+        }
+
+    }
+</script>
+
+</body>
+</html>

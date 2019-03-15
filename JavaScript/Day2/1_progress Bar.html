@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progress Bar</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #progress {
+        width: 1000px;
+        height: 35px;
+        /*border: 1px solid #cccccc;*/
+        /*background-color: #E8E8E8;*/
+        margin: 50px auto;
+        line-height: 35px;
+
+        position: relative;
+    }
+
+    #progress_bar {
+        width: 900px;
+        height: 100%;
+        background-color: #cccccc;
+        border-radius: 8px;
+        position: relative;
+
+    }
+
+    #progress_bar_fg {
+        width: 0px;
+        height: 100%;
+        background-color: red;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+
+    #progress_bar_value {
+        position: absolute;
+        right: 50px;
+        top: 0px;
+    }
+
+    span {
+        width: 25px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        left: 0px;
+        top: -8px;
+        border-radius: 8px;
+        cursor: pointer;
+
+    }
+
+</style>
+<body>
+<div id="progress">
+    <div id="progress_bar">
+        <div id="progress_bar_fg"></div>
+
+    </div>
+    <span></span>
+    <div id="progress_bar_value">0%</div>
+</div>
+
+
+<script>
+    window.onload = function () {
+        var progress = $('progress');
+        var progress_bar_fg = $('progress_bar_fg');
+        var mask = progress.children[1];
+        var progress_bar_value = $('progress_bar_value');
+
+
+        mask.onmousedown = function (event) {
+            var e = event || window.event;
+            var offsetX=e.clientX-mask.offsetLeft;
+            console.log(e.clientX, mask.offsetLeft,offsetX);
+            document.onmousemove=function (event) {
+                var e=event || window.event;
+
+                var x=e.clientX-offsetX;
+                // console.log(offsetX);
+                if (x<0){
+                    x=0;
+                }else if (x>progress_bar.offsetWidth-mask.offsetWidth){
+                    x=progress_bar.offsetWidth-mask.offsetWidth;
+                }
+                mask.style.left=x+'px';
+                progress_bar_fg.style.width=x+'px';
+                progress_bar_value.innerText=parseInt(x/(progress_bar.offsetWidth-mask.offsetWidth)*100)+'%';
+            }
+
+            return false;
+        }
+        document.onmouseup=function () {
+            document.onmousemove=null;
+        }
+    }
+
+
+
+
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>longPic</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+    body {
+        background: #000;
+    }
+
+    #box {
+        width: 750px;
+        height: 350px;
+        margin: 100px auto;
+        border: 1px solid red;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #pic {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+
+    #to_top, #to_bottom {
+        width: 100%;
+        height: 50%;
+        /*background-color: greenyellow;*/
+        position: absolute;
+        left: 0px;
+    }
+
+    #to_top {
+        top: 0px;
+    }
+
+    #to_bottom {
+        bottom: 0px;
+    }
+</style>
+<body>
+<div id="box">
+    <img id="pic" src="../../image/2.jpg" width="750px" height="1500px">
+    <span id="to_top"></span>
+    <span id="to_bottom"></span>
+</div>
+<script>
+    window.onload = function () {
+        var top = document.getElementById('to_top');
+        var bottom = document.getElementById('to_bottom');
+        var pic = document.getElementById('pic');
+        var timer = null;
+        var num = 0
+        top.onmouseover = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                num -= 5;
+                // console.log(num);
+                // pic.style.top=num +'px';
+
+                if (num >= -(pic.height - 350)) {
+                    console.log(num, pic.height);
+                    pic.style.top = num + 'px';
+                } else {
+                    clearInterval(timer)
+                }
+
+            }, 20)
+
+        }
+
+
+        bottom.onmouseover = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                num += 5;
+                // console.log(num);
+                // pic.style.top=num +'px';
+
+                if (num <= 0) {
+                    console.log(num, pic.height);
+                    pic.style.top = num + 'px';
+                } else {
+                    clearInterval(timer)
+                }
+
+            }, 20)
+        }
+        var box=document.getElementById('box');
+        box.onmouseout=function () {
+            clearInterval(timer)
+        }
+    }
+</script>
+</body>
+</html>

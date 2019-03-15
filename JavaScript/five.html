@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>practice</title>
+</head>
+<body>
+<div>
+    <img src="../image/1.jpg" alt="图片1" width="400px" height="200px">
+</div>
+
+<button>上一张</button>
+<button>下一张</button>
+<script>
+    window.onload=function () {
+        var img=document.getElementsByTagName('img')[0];
+        var proviousBtn=document.getElementsByTagName('button')[0];
+        var nextBtn=document.getElementsByTagName('button')[1];
+        // console.log(proviousBtn);
+        var minIndex=1,maxIndex=8,currentIndex=minIndex;
+        // var src= img.getAttribute('src');
+        proviousBtn.onclick=function () {
+            if (currentIndex===1){
+                currentIndex=maxIndex;
+            } else
+                currentIndex --
+            console.log(currentIndex);
+            img.setAttribute('src','../image/'+currentIndex+'.jpg')
+        }
+        nextBtn.onclick=function () {
+            if (currentIndex===8){
+                currentIndex=minIndex;
+            } else {
+                currentIndex++
+                img.setAttribute('src','../image/'+currentIndex+'.jpg')
+                console.log(currentIndex);
+            }
+
+
+
+            // console.log('next');
+        }
+    }
+</script>
+
+</body>
+</html>

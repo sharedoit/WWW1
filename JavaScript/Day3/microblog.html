@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>microBlog</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0px;
+        list-style: none;
+    }
+
+    #word {
+        margin: 100px;
+        width: 300px;
+
+    }
+
+    #micro_blog {
+        /*background-color: deepskyblue;*/
+        /*margin: 5px;*/
+        /*padding: 10px;*/
+        /*width: 150px;*/
+        /*color: #E8E8E8;*/
+        /*position: absolute;*/
+        /*display: none;*/
+        /*border-radius: 10px;*/
+        /*font-weight: bolder;*/
+        width: 26px;
+        height: 26px;
+        background: url("../../image/22.jpg");
+        background-size: 100% 100%;
+        position: absolute;
+        display: none;
+        margin: 10px;
+
+    }
+</style>
+<script src="../Function/myFunction.js"></script>
+<body>
+
+<p id="word">
+    一、质量要求
+    1.各种原材料、配件进场前，必须通过甲方的质量验收，同意后方可使用。项目所使用的原材料和配件，必须向甲方提供合格证、生产许可证、检验证书等合法证件。提供材料送检产品，并承担检测费用。
+    2.如果乙方不按图施工或安装不合理，造成工程不能如期验收而产生的损失，由乙方负责全额承担。
+    二、安全生产
+    1.乙方自行组织施工，安排安全生产工作，进行安全教育，做到持证上岗。乙方人员进场后，必须遵守当地各项法律、法规，遵守社会治安管理条例，不许喝酒、不许赌博。
+    2.在施工过程中，必须遵守操作规程，做到不安全，不生产。管理好临时用电，做好安全防火工作。乙方进场后，必须服从领导，听从分配，尊重项目部管理人员的意见，配合好各项工作。
+</p>
+<div id="micro_blog"></div>
+
+<script>
+    window.onload = function () {
+
+        $('word').onmouseup = function (event) {
+            var e = event || window.event;
+            var select_text = window.getSelection().toString();
+            console.log(select_text);
+            console.log(e.clientX, e.clientY);
+            if (select_text !== '') {
+
+
+                $('micro_blog').style.display = 'block';
+                $('micro_blog').style.left = e.clientX + 'px';
+                $('micro_blog').style.top = e.clientY + 'px';
+
+            }
+
+        }
+        document.onmousedown = function (event) {
+            var e = event || window.event;
+
+            var targentId = e.target ? e.target.id : e.srcElement.id;
+            console.log(targentId);
+            if (targentId !== 'micro_blog') {
+                $('micro_blog').style.display = 'none';
+                window.getSelection?window.getSelection().removeAllRanges():window.getSelection().empty();
+            }else{
+                window.location.href='http://www.baidu.com';
+            }
+
+        }
+
+
+    }
+
+</script>
+
+</body>
+</html>

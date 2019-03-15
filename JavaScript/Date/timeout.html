@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>timeout</title>
+</head>
+<body>
+<button id="btn">三秒后执行</button>
+<button id="btn1">停止</button>
+<script>
+    var btn=document.getElementById('btn');
+    var btn1=document.getElementById('btn1');
+    var timerout=null;
+    btn.onclick=function () {
+        clearTimeout();
+       timerout= setTimeout(function () {
+            alert('吃饭');
+        },3000)
+    }
+    btn1.onclick=function () {
+        clearTimeout();
+    }
+</script>
+</body>
+</html>

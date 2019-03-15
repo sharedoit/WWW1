@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>waterfall_flow</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: none;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    #main {
+        /*width: 100%;*/
+        position: relative;
+    }
+
+    .box {
+        /*position: absolute;*/
+        float: left;
+        padding: 15px 0 0 15px;
+        /*background-color: red;*/
+    }
+
+    .pic {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+
+   .pic img {
+        width: 165px;
+    }
+
+</style>
+<script src="underscore.js"></script>
+<body>
+
+<div id="main">
+
+
+    <div class="box">
+        <div class="pic"><img src="../../image/14.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/15.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/16.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/17.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/18.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/19.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/20.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/21.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/22.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/10.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/11.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/12.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/13.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/23.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/25.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/25.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/26.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/27.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/28.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/29.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/29.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/30.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/31.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/31.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/32.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/33.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/34.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/35.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/36.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/37.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/38.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/39.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/40.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/10.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/11.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/25.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/26.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/27.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/36.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/37.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/38.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/39.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/40.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/10.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/11.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/25.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/26.jpg"></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="../../image/27.jpg"></div>
+    </div>
+
+
+</div>
+<script>
+    window.onload = function () {
+        //1.瀑布流
+        waterFall('main', 'box');
+        // console.log($('main'));
+        //    2.动态加载图片
+        window.onscroll=function () {
+            if (checkWillLoadImage()){
+                var imageArray=[
+                    {'src':'1.jpg'},
+                    {'src':'2.jpg'},
+                    {'src':'3.jpg'},
+                    {'src':'4.jpg'},
+                    {'src':'5.jpg'},
+                    {'src':'6.jpg'},
+                    {'src':'7.jpg'},
+                    {'src':'8.jpg'},
+                    {'src':'9.jpg'},
+                    {'src':'10.jpg'},
+                    {'src':'10.jpg'},
+                ];
+                for (var i=0;i<imageArray.length;i++){
+                    // console.log(imageArray[i].src);
+                    var newBox=document.createElement('div');
+                    newBox.className='box';
+                      $('main').appendChild(newBox);
+                    var newPic=document.createElement('div');
+                    newPic.className='pic';
+                    newBox.appendChild(newPic);
+                    var newImg=document.createElement('img');
+                    newImg.src="../../image/"+imageArray[i].src;
+
+                    newPic.appendChild(newImg);
+                    // newImg.style.width='165px';
+                    waterFall('main','box');
+
+
+
+                }
+            } 
+        }
+    }
+
+    /**
+     *
+     *  瀑布流
+     **/
+    function waterFall(parent, child) {
+        //父盒子剧中
+        // /1.1/获取所有子盒子
+        var allBox = $(parent).getElementsByClassName(child);
+        // console.log(allBox);
+        // 1.2 获取子盒子宽度
+        var boxWidth = allBox[0].offsetWidth;
+        console.log(boxWidth);
+
+        //    1.3获取屏幕的宽度
+        var screenWidth = document.documentElement.clientWidth;
+        console.log(screenWidth);
+        //    1.4求出列数
+        var cols = parseInt(screenWidth / boxWidth);
+        // console.log(cols);
+        // 1.5 父盒子剧中
+
+        $(parent).style.width = cols * boxWidth + 'px';
+        // console.log($(parent).style.width);
+        $(parent).style.margin = '0 auto';
+
+        //    2.子盒子定位
+        var heightArray = [];
+        var boxHeight = 0;
+        var minBoxHeight = 0;
+        var minIndex = 0;
+        //    2.1定位子盒子数组
+        for (var i = 0; i < allBox.length; i++) {
+            boxHeight = allBox[i].offsetHeight;
+            // console.log(boxHeight);
+            if (i < cols) {
+                heightArray.push(boxHeight);
+
+            } else {
+                //取出最矮盒子高度
+                //     minBoxHeight=Math.min.apply(this,heightArray)
+                minBoxHeight = _.min(heightArray)
+                // console.log(minBoxHeight);
+                //
+                // 最小高度索引
+                // minIndex = getMinIndex(heightArray, minBoxHeight);
+                minIndex = heightArray.indexOf(minBoxHeight)
+
+                console.log(minIndex);
+                allBox[i].style.position = 'absolute';
+                allBox[i].style.left = boxWidth * minIndex + 'px';
+                allBox[i].style.top = minBoxHeight + 'px';
+                //    更新高度
+                heightArray[minIndex] += boxHeight;
+
+            }
+        }
+        console.log(heightArray);
+
+
+    }
+
+    /**
+     *
+     * 获取最矮盒子索引
+     * @param arr
+     * @param val
+     * @returns {number}
+     */
+    function getMinIndex(arr, val) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] == val) {
+                return i;
+            }
+        }
+    }
+
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+    function checkWillLoadImage() {
+        var  allBox=document.getElementsByClassName('box');
+        var lastBox=allBox[allBox.length-1];
+    //   最后一个盒子自身一般距离top高度
+        var lastboxDis=lastBox.offsetTop+lastBox.offsetHeight*0.5;
+
+    // 求屏幕高度
+        var screenH=document.documentElement.clientHeight;
+    //  页面偏离浏览器的高度
+        var scrollTop=document.documentElement.scrollTop;
+        return lastboxDis<=screenH+scrollTop;
+
+    }
+
+        
+
+
+</script>
+
+
+</body>
+</html>

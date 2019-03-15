@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>uploadImage</title>
+</head>
+<body>
+<label>上传图片验证：</label>
+<input type="file" id="file">
+<script>
+    window.onload = function () {
+        //    1.获取标签
+        var file = document.getElementById('file');
+        //    2.监听作用于的变化
+        console.log(file);
+        file.onchange = function () {
+        //   2.1获取上传文件路径
+        //     console.log(file.value);
+            var path=this.value;
+            // console.log(path);
+            // console.log(path.lastIndexOf('.'));
+         var subfix=path.substr(path.lastIndexOf('.'));
+         var lower_subfix=subfix.toLowerCase()
+            // console.log(lower_subfix);
+        if (lower_subfix==='.jpg' || lower_subfix==='.png' || lower_subfix==='.gif' ||lower_subfix==='.bmp') {
+            alert("上传成功");
+        }else {
+            alert('上传图片不正确');
+        }
+
+        }
+    }
+</script>
+</body>
+</html>

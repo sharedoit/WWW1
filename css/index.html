@@ -1,0 +1,125 @@
+<html>
+<header>
+    <title>
+        css learn
+    </title>
+<style>
+    .red{
+        width: 300px;
+        height: 300px;
+        border: 5px solid red;
+        border-radius: 20px;
+        border-shadow: 5px 2px 6px #000;
+    }
+    .blue{
+        width: 300px;
+        height: 300px;
+        border: blue 3px double;
+        /*display: none;*/
+        /*visibility: hidden;*/
+        float: left;
+    }
+    .green{
+        width: 300px;
+        height: 300px;
+        border: green 10px dotted;
+        /*margin: 10px;*/
+        /*display: inline;*/
+        /*position: static;*/
+        /*position: fixed;*/
+        /*position: relative;*/
+        position: absolute;
+        /*top:20px;*/
+        /*left: 20px;*/
+        overflow:hidden;
+        float: left;
+        margin: auto;
+        width: 50%;
+    }
+    .parent{
+        width: 500px;
+        height: 500px;
+        border: #3a6c7e 10px solid;
+        position:relative;
+        top: 50px;
+        /*float: left;*/
+        clear: both;
+    }
+    .center{
+        margin: auto;
+        width: 50%;
+        position: relative;
+        border: #002DFF 5px solid;
+        top: 80px;
+        text-align: center;
+    }
+    .navigate{
+        position: relative;
+        top: 80px;
+        width: 400px;
+
+    }
+    .navigate-ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+    }
+    .navigate a{
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+    .navigate a:hover{
+        background-color: #555;
+        color: white;
+
+    }
+    li{
+        float: left;
+    }
+</style>
+</header>
+<body>
+<div class="red">
+
+</div>
+<div class="blue">
+    div2
+</div>
+<div class="parent">
+    <div class="green">
+        green
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+    </div>
+</div>
+
+<div class="center">
+    center
+</div>
+
+<div class="navigate">
+    <ul class="navigate-ul">
+        <li><a href="#">one</a></li>
+        <li><a href="#">two</a></li>
+        <li><a href="#">three</a></li>
+        <li><a href="#">four</a></li>
+
+    </ul>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sideBar</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0;
+        list-style: none;
+        border: none;
+    }
+
+    #aside {
+
+        position: absolute;
+        top: 300px;
+        left: 0px;
+        width: 150px;
+
+    }
+
+    #aside img {
+        width: 100%;
+    }
+
+    #content {
+        width: 80%;
+        margin: 100px auto;
+        border: 1px solid #cccccc;
+
+    }
+
+    #content p {
+        height: 50px;
+        text-align: center;
+        font-size: 45px;
+    }
+</style>
+<body>
+<div id="aside">
+    <img src="../../image/22.jpg">
+</div>
+<div id="content">
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+</div>
+<script src="../Function/myFunction.js"></script>
+<script>
+    window.onload = function () {
+         var  sideC=document.getElementById('aside');
+        // console.log(sideC.offsetWidth);
+        //1.距离顶部高度
+        var offset_top = $('aside').offsetTop;
+        // console.log(offset_top);
+        //2.滚动高度
+        var begin = 0, end = 0, timer = null;
+        window.onscroll = function () {
+            clearInterval(timer)
+            var scroll_top = scroll().top;
+            end=offset_top+scroll_top;
+        //3.实现缓动动画 begin=begin+（end-begin）*0.2
+
+            var timer=setInterval(function () {
+
+                begin=begin+(end-begin)*0.5;
+                $('aside').style.top=begin+'px'
+                // console.log($('aside').style.top);
+                // console.log(begin);
+                if (Math.round(begin)==end){
+                    clearInterval(timer)
+                }
+            },20);
+
+        }
+    }
+
+</script>
+
+</body>
+</html>

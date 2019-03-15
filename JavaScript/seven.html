@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+</head>
+<style>
+    #fj {
+        list-style-type: none;
+        display: inline-block;
+        margin: 30px;
+
+    }
+</style>
+<body>
+<p id="des">图片展示</p>
+<img id="big_img" src="../image/1.jpg" width="600px">
+<ul id="fj">
+    <li><a href="../image/2.jpg" title="图片1"><img src="../image/2.jpg" width="100px"></a></li>
+    <li><a href="../image/3.jpg" title="图片2"><img src="../image/3.jpg" width="100px"></a></li>
+    <li><a href="../image/4.jpg" title="图片3"><img src="../image/4.jpg" width="100px"></a></li>
+    <li><a href="../image/5.jpg" title="图片4"><img src="../image/5.jpg" width="100px"></a></li>
+    <li><a href="../image/6.jpg" title="图5"><img src="../image/6.jpg" width="100px"></a></li>
+
+</ul>
+<script>
+    window.onload = function () {
+        //    获取标签
+        var ul = document.getElementById('fj');
+        var alist = ul.getElementsByTagName('a');
+        var des = document.getElementById('des');
+        var big_img = document.getElementById('big_img')
+        for (var i = 0; i < alist.length; i++) {
+            // console.log(alist[i]);
+            alist[i].onclick = function () {
+                // alert("hello");
+                big_img.src=this.href;
+                console.log(big_img.src);
+                console.log(this.href);
+                des.innerHTML=this.title;
+                return false;
+            }
+        }
+    }
+</script>
+</body>
+</html>

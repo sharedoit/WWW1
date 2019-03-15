@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+    #box{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+<body>
+<button id="btn">开始动画</button>
+<button id="remission">Remission Animal</button>
+<div id="box"></div>
+<script>
+    window.onload=function () {
+        var btn=document.getElementById('btn');
+        var box=document.getElementById('box');
+        var remission=document.getElementById('remission');
+        var timer=null,begin=0,step=10,target=800;
+        btn.onclick=function () {
+            clearInterval(timer);
+            timer=setInterval(function () {
+                begin +=step;
+
+                if (begin >=target){
+                    begin=target;
+                    console.log(begin);
+
+                    clearInterval(timer);
+                }
+                box.style.marginLeft=begin+'px';
+                 
+            },20)
+        }
+        remission.onclick=function () {
+            clearInterval('timer');
+            timer=setInterval(function () {
+                begin +=(target-begin)*0.1;
+                if (Math.round(begin)>=target) {
+                    clearInterval(timer)
+                    begin=target;
+
+                }
+                console.log(begin);
+                box.style.marginLeft=begin+'px';
+            },200)
+        }
+    }
+</script>
+</body>
+</html>

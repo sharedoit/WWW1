@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gotop</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: none;
+    }
+
+    p {
+        width: 80%;
+        height: 30px;
+        margin: 0px auto;
+        border: 1px solid #cccccc;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    body {
+        background-color: #E8E8E8;
+    }
+
+    #top {
+        width: 50px;
+        height: 50px;
+        background: url("../../image/6.jpg") no-repeat;
+        background-size: 100% 100%;
+        /*background-color: orange;*/
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        display: none;
+    }
+</style>
+<script src="../Function/myFunction.js"></script>
+<script src="../Function/underscore.js"></script>
+<body>
+<span id="top"></span>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<p>hello world</p>
+<script>
+    window.onload = function () {
+        //定义变量
+        var scroll_top = 0
+        var clickTop = $('top')
+        //缓动动画变量
+        var begin=0,end=0,timer=null;
+        
+        //1. scroll  滚动事件
+        window.onscroll = function () {
+
+            scroll_top = scroll().top;
+            scroll_top > 0 ? styleShow(clickTop) : styleHide(clickTop);
+
+
+        }
+
+        //2.top onClick事件
+        $('top').onclick = function () {
+
+            //3.实现缓动画
+            clearInterval(timer);
+            begin=scroll_top;
+
+            timer=setInterval(function () {
+                begin=begin+(end-begin)/10
+                window.scrollTo(0,begin);
+                if (parseInt(begin)==end){
+                    clearInterval(timer);
+                }
+                console.log(begin, end);
+
+            },20)
+
+        }
+
+
+    }
+</script>
+</body>
+</html>

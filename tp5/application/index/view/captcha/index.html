@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Captcha</title>
+</head>
+<body>
+<h1>Captcha</h1>
+
+<form method="post" class="form" action={:url('check')}>
+    输入验证码：<input type="text" class="text" name="code"><br/>
+    <div id="captcha_image">{:captcha_img()}</div>
+    <input type="submit" value="提交">
+    <script>
+        $(#captcha).click()(function () {
+            $this.find('img').attr('src','captcha.html?r='+match.random())
+        })
+
+    </script>
+</form>
+</body>
+</html>

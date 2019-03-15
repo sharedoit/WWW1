@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exclusive</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+</body>
+<script>
+    window.onload=function () {
+        var btnAll=document.querySelectorAll('button');
+        console.log(btnAll);
+        for (var i=0;i<btnAll.length;i++){
+            (function (i) {
+                var btn= btnAll[i];
+                btn.onclick=function () {
+                    console.log('你点击了第' + i + '个按钮');
+                }
+            })(i)
+        }
+    }
+</script>
+</html>

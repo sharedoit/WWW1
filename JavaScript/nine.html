@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>code</title>
+</head>
+<style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+    #e_code{
+        width: 100px;
+        height: 100px;
+        background: url("./ico/1.jpg") no-repeat;
+        position: fixed;
+        top: 40%;
+        left: 0px;
+        cursor: pointer;
+
+
+    }
+    #app_code{
+        position: absolute;
+        left: 100px;
+        top: -50px;
+        display: none;
+    }
+</style>
+<body>
+<div id="e_code">
+    <div id="app_code">
+        <img src="../image/6.jpg" width="200px" height="200px">
+    </div>
+</div>
+<script>
+    window.onload=function () {
+        var e_code=document.getElementById('e_code');
+        var app_code=document.getElementById('app_code');
+        e_code.onmousemove=function () {
+            this.style.background='url("./ico/2.jpg") no-repeat';
+            app_code.style.display='block';
+        }
+        e_code.onmouseout=function () {
+            this.style.background='url("./ico/1.jpg") no-repeat';
+            app_code.style.display='none';
+        }
+    }
+</script>
+
+</body>
+</html>

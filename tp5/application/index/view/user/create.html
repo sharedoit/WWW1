@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User_create</title>
+</head>
+<body>
+<h1>创建用户</h1>
+<form method="post" action="{:url('index/user/add')}">
+    昵称：<input type="text" class="text" name="nickname"><br/>
+    邮箱：<input type="text" class="text" name="email"><br/>
+    生日：<input type="text" class="text" name="birthday"><br/>
+    <input type="text" name="_token_" value="{$Request.token}">
+    <input type="submit" class="btn" value="提交">
+</form>
+
+</body>
+</html>

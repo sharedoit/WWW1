@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String</title>
+</head>
+<body>
+<script type="text/html">
+    var str='hello world';
+    console.log(typeof str);
+    var age=18;
+    console.log(typeof (age + ''));
+    console.log(typeof String(age));
+</script>
+<script type="text/html">
+    var str='hello world'
+    console.log(str.charAt(1));
+    var str1='你好朋友';
+    console.log(str1.charAt(3));
+    console.log(str1.charCodeAt(0));
+    var str2='你';
+    console.log(str2.length);
+    var str3='ab';
+    console.log(str3.length);
+</script>
+<script type="text/html">
+    var str='中国123';
+
+    /**
+     *获取字符串真实长度
+     * @param str{string}
+     * @returns {number}
+     */
+    function getStringLengh(str) {
+        var len=0;
+        var code=0
+        for (var i=0;i<str.length;i++){
+            code= str.charCodeAt(i);
+            // console.log(code);
+            if (code>0 && code<=127){
+                len +=1;
+            }else {
+                len +=2;
+            }
+        }
+
+        return len;
+    }
+
+    console.log(getStringLengh(str));
+</script>
+<script type="text/html">
+    var str='hello world';
+    console.log(str.indexOf('l0'));
+    var url='http://www.baidu.com';
+    console.log(encodeURIComponent(url));
+    var str1='http%3A%2F%2Fwww.baidu.com';
+    var deCodeStr=decodeURIComponent(str1);
+    console.log(deCodeStr);
+    console.log(decodeURIComponent('http://localhost:63342/WWW/JavaScript/string.html?_ijt=28277tbi8ecjpjc541bv9v2dni'));
+
+</script>
+<script>
+    var number=3.1415926
+    console.log(number.toFixed(2));
+    var str='abASDCd'
+    console.log(str.toLowerCase());
+    console.log(str.toUpperCase());
+</script>
+</body>
+</html>

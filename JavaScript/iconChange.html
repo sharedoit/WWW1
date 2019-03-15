@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iconChange</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+    #box {
+        width: 360px;
+        border: solid 1px black;
+        height: 70px;
+        padding-top: 360px;
+        margin: 100px auto;
+        background: url("../image/1.jpg");
+
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div id="box">
+    <ul id="img_list">
+        <li id="img01"><img src="../image/1.jpg " width="70px" height="70px"></li>
+        <li id="img02"><img src="../image/2.jpg " width="70px" height="70px"></li>
+        <li id="img03"><img src="../image/3.jpg " width="70px" height="70px"></li>
+        <li id="img04"><img src="../image/4.jpg " width="70px" height="70px"></li>
+        <li id="img05"><img src="../image/5.jpg " width="70px" height="70px"></li>
+    </ul>
+</div>
+<script>
+    window.onload = function () {
+
+
+
+        function $(id) {
+            return typeof id === "string" ? document.getElementById(id) : null
+        }
+        var box=$('box')
+        var alli=box.getElementsByTagName('li');
+        for (var i=0;i<alli.length;i++){
+           var sli=alli[i];
+           sli.index=i+1;
+           sli.onmouseover=function () {
+               // console.log(this.index);
+               box.style.background="url('../image/"+this.index+".jpg') no-repeat"
+           }
+        }
+
+
+
+
+
+
+
+
+        // console.log($('box'));
+        /**
+         *
+         *
+         * @param listId {string}
+         * @param url {string}
+         */
+        // function changeImage(listId, imgSrc) {
+        //     $(listId).onmousemove = function () {
+        //         box.style.background = imgSrc
+        //         console.log(box.style.background);
+        //     }
+        // }
+        // changeImage('img01',"url('../image/1.jpg') no-repeat");
+        // changeImage('img02',"url('../image/2.jpg') no-repeat");
+        // changeImage('img03',"url('../image/3.jpg') no-repeat");
+        // changeImage('img04',"url('../image/4.jpg') no-repeat");
+        // changeImage('img05',"url('../image/5.jpg') no-repeat");
+
+
+
+        // var box=document.getElementById('box');
+        // var img01=document.getElementById('img01')
+        // var img02=document.getElementById('img02')
+        // var img03=document.getElementById('img03')
+        // var img04=document.getElementById('img04')
+        // var img05=document.getElementById('img05')
+        // // img01.onclick=function () {
+        // //     box.style="background:url('../image/1.jpg')"
+        // // }
+        // // img02.onclick=function () {
+        // //     box.style="background:url('../image/2.jpg')"
+        // // }
+        // // img03.onclick=function () {
+        // //     box.style="background:url('../image/3.jpg')"
+        // // }
+        // // img04.onclick=function () {
+        // //     box.style="background:url('../image/4.jpg')"
+        // // }
+        // // img05.onclick=function () {
+        // //     box.style="background:url('../image/5.jpg')"
+        // // }
+        // var img_list=document.getElementById('img_list');
+        // var liList=img_list.getElementsByTagName('li');
+        // console.log(liList[0]);
+        // console.log(liList.length);
+        // for (var i=0;i<liList.length;i++){
+        //    liList[i].onclick=function () {
+        //        // console.log(this);
+        //        console.log(this.firstChild.src);
+        //        // console.log(this.innerHTML);
+        //        box.style="background:url("+this.firstChild.src+")"
+        //    }
+        // }
+
+    }
+</script>
+
+</body>
+</html>

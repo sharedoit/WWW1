@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>card1</title>
+</head>
+<style>
+    div.polaroid{
+        width: 250px;
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        text-align: center;
+        /*transform: rotate(30deg);*/
+        transform: translate(50px,50px);
+        /*transform:scale(2,3);*/
+        transform:skew(30deg,20deg);
+        transition: width 2s;
+    }
+    .polaroid:hover{
+        width: 500px;
+    }
+    div.container{
+        padding: 10px;
+    }
+    .animation{
+        width: 500px;
+        height: 500px;
+        background-color: red;
+        animation: myfirst 5s;
+    }
+    @keyframes myfirst {
+        0% {background:red}
+        25% {background:blue}
+        75% {background:green}
+        100% {background:orange}
+    }
+    .resize{
+
+        width: 200px;
+        border: 2px solid;
+        padding: 10px 40px;
+        resize: both;
+        overflow: auto;
+    }
+
+    .flex-container{
+        display: flex;
+        flex-direction: row;
+        width: 800px;
+        height: 250px;
+        background-color: lightgrey;
+        justify-content: space-around;
+        align-items: baseline;
+    }
+    .flex-item{
+        background-color: cornflowerblue;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+    }
+</style>
+<body>
+<div class='polaroid'>
+    <img src="/image/1.jpg" alt="Norway" style="width: 100%">
+    <div class="container">
+        <p>Hardanger,Norway</p>
+    </div>
+</div>
+<div class="animation">
+    animation
+</div>
+<div class="resize">
+    hello  world
+</div>
+
+<div class="flex-container">
+    <div class="flex-item">flex item 1</div>
+    <div class="flex-item">flex item 2</div>
+    <div class="flex-item">flex item 3</div>
+    <div class="flex-item">flex item 4</div>
+
+</div>
+</body>
+</html>

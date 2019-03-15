@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>centerNavigate</title>
+</head>
+<script src="../Function/myFunction.js"></script>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: none;
+    }
+    img{
+        vertical-align: top;
+    }
+    section{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .nav{
+        position: fixed;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+    }
+</style>
+<body>
+<header>
+    <img src="../../image/1.jpg" height="80px" width="100%">
+</header>
+<nav id="nav">
+    <img src="../../image/2.jpg" height="120px" width="100%">
+</nav>
+<section>
+    <img src="../../image/3.jpg" height="2000px" width="100%">
+</section>
+<script>
+    window.onload=function () {
+        var nav=document.getElementById('nav');
+        var nav_offsetTop=nav.offsetTop
+        console.log(nav_offsetTop);
+        window.onscroll=function (){
+          var scrollTopHeight= scroll().top;
+            if (scrollTopHeight>=nav_offsetTop){
+                nav.className='nav';
+            }else {
+                nav.className=null;
+            }
+
+        }
+
+    }
+</script>
+</body>
+</html>

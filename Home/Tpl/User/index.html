@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/index.php/User/search" method="post">
+    用户名：<input type="text" name="username" value=""/>
+    性  别：男<input type="radio" name="sex" value="1"/>女<input type="radio"  name="sex"  value="0"/>
+    <input type="submit" value="查询">
+</form>
+
+<table width="500" border="1" align="left">
+    <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>sex</th>
+        <th>操作</th>
+    </tr>
+
+    <volist name="data" id="vo">
+        <tr>
+            <td><{$vo.id}></td>
+            <td><{$vo.username}></td>
+            <td><{$vo.sex}></td>
+            <td>操作</td>
+        </tr>
+    </volist>
+
+</table>
+</body>
+</html>

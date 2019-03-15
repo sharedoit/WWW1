@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>client</title>
+</head>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        margin: 0px;
+        list-style: none;
+    }
+
+    #box {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        padding: 10px;
+        background: orchid;
+        border: 10px solid red;
+    }
+</style>
+<script src="../Function/myFunction.js"></script>
+<body>
+<div id="box"></div>
+
+<script type="text/html">
+    var box = document.getElementById('box');
+
+    //1.width  height
+    //offsetWidth
+    console.log('offsetWidth:' + box.offsetWidth, 'offsetHeight:' + box.offsetHeight);  // width+paddding+border
+    //可视区域宽度和高度
+    console.log(box.clientWidth, box.clientHeight);
+    //滚动区域的宽度和高度
+    console.log(box.scrollWidth, box.scrollHeight);
+    // console.log(box.style.width);
+
+    //top  left
+    console.log(box.offsetLeft, box.offsetTop);
+    console.log(box.clientLeft, box.clientTop);
+    console.log(box.scrollLeft, box.scrollTop);
+    console.log(client().width, client().height);
+
+</script>
+<script>
+    window.onresize=function () {
+        // console.log(client().width, client().height);
+    if (client().width>=960 ){
+       document.body.style.backgroundColor='red';
+    } else if (client().width>=640){
+        document.body.style.backgroundColor='blue';
+    } else {
+       document.body.style.backgroundColor='green';
+    }
+
+        console.log(client().width);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>photo wall</title>
+    <script src="underscore.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        border: none;
+        list-style: none;
+    }
+    html,body,ul{
+        width: 100%;
+        height: 100%;
+    }
+    #ps{
+        position: relative;
+
+    }
+    #ps li{
+        width: 250px;
+        height: 350px;
+        box-shadow: 0 0 10px #000000;
+        overflow:hidden;
+        position: absolute;
+        transition: all 1s;
+    }
+    #ps li.current{
+        left: 50%!important;
+        top: 50%!important;
+        transform:rotate(0deg) translate(-50%,-50%) scale(1.5,1.5)!important;
+        z-index: 99;
+    }
+
+
+
+</style>
+<body>
+<ul id="ps"></ul>
+<script>
+    window.onload=function () {
+
+        //   1.获取需要的标签
+
+        var ps=document.getElementById('ps');
+
+        //   2.动态创建li标签
+
+            for (var i=0;i<9;i++){
+                var li=document.createElement('li');
+                ps.appendChild(li);
+                var img=document.createElement('img')
+                img.src='../../image/'+(i+1)+'.jpg';
+                // img.width='250px';
+                // img.height='350px'
+                li.appendChild(img);
+            }
+        //获取所有li
+        var allList=ps.children;
+        // console.log(allList);
+        var screenW=document.documentElement.clientWidth-350;
+        var screenH=document.documentElement.clientHeight-350;
+        for (var j=0;j<allList.length;j++){
+            var liOne=allList[j];
+            // console.log(liOne);
+            //随机分布
+            liOne.style.left= _.random(0,screenW)+'px';
+            liOne.style.top= _.random(0,screenH)+'px';
+        //    随机角度
+            liOne.style.transform='rotate('+(_.random(0,360))+'deg)';
+
+            liOne.onclick=function () {
+                for (var i=0;i<allList.length;i++){
+                    allList[i].className='';
+                }
+                this.className='current';
+
+            }
+
+        }
+
+    }
+</script>
+
+</body>
+</html>

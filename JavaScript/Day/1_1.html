@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    body {
+        background-color: #000000;
+    }
+
+    span {
+        width: 30px;
+        height: 30px;
+        /*background:url("../../image/1.jpg");*/
+        /*background-color: red;;*/
+        background: url("../../image/star.jpg") no-repeat;
+        position: absolute;
+        background-size: 100% 100%;
+        animation: flash 1s alternate infinite;
+
+
+    }
+    span:hover{
+        transform: scale(3,3) rotate(180deg) !important;
+        transition: all 1s;
+    }
+
+    @keyframes flash {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+<body>
+
+<script>
+    window.onload = function () {
+
+        // 1.屏幕尺寸
+        var screenW = document.documentElement.clientWidth;
+        var screenH = document.documentElement.clientHeight;
+        console.log(screenW, screenH);
+        //    2.动态创建星星
+        for (var i = 0; i < 50; i++) {
+            var span = document.createElement('span');
+            document.body.appendChild(span);
+            //   随机坐标
+            var left = parseInt(Math.random() * screenW);
+            var top = parseInt(Math.random() * screenH);
+            // console.log(left, top);
+            span.style.left = left + 'px';
+            span.style.top = top + 'px';
+
+            //    随机缩放
+            var scale = Math.random() * 2;
+            console.log(scale);
+            span.style.transform='scale('+scale+','+scale+')';
+        //    控制频率
+            var rate=Math.random()*1.5;
+            span.style.animationDelay=rate+'s';
+        }
+
+    }
+</script>
+</body>
+</html>

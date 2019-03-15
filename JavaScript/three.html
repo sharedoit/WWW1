@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CURD</title>
+</head>
+<style type="text/css">
+    #box{
+        width: 400px;
+        height: 400px;
+        background-color: red;
+ ;
+    }
+
+</style>
+<body>
+<div id="box">
+    <p id="word">hahahaha</p>
+    <button class="btn">按钮</button>
+    <span class="span">hello world</span>
+</div>
+<script>
+    window.onload=function () {
+        var img=document.createElement('img')
+        img.src='../image/1.jpg';
+        img.style='width:200px;border-radius:15px'
+        var box=document.getElementById('box');
+        box.appendChild(img);
+        var btn=document.getElementsByTagName('button')[0];
+        box.insertBefore(img,btn);
+        var word=document.getElementById('word');
+        word.parentNode.removeChild(word);
+        var btn=document.getElementsByClassName('btn')[0];
+       var newBtn= btn.cloneNode(true);
+       box.insertBefore(newBtn,btn)
+        btn.remove();
+
+        // console.log(img);
+        // console.log(box);
+
+    }
+</script>
+
+</body>
+</html>

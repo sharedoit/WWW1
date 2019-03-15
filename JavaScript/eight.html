@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>value</title>
+</head>
+<body>
+<div id="box">
+    <p>today</p>
+    <input id="input" type="text" value="hello world">
+</div>
+
+<script type="text/html">
+    window.onload=function () {
+        var input=document.getElementById('input');
+        // input.value='daliang';
+        // console.log(input.value);
+        var box=document.getElementById('box');
+        console.log(box.innerHTML);
+        console.log(box.innerText);
+    }
+</script>
+<script type="text/html">
+    window.onload=function () {
+        window.location.href='http://www.baidu.com';
+    }
+</script>
+<script>
+    window.onload=function () {
+        // console.log(document);
+        console.log(document.children);
+        console.log(document.head);
+        console.log(document.body);
+        console.log(document.title);
+    }
+</script>
+</body>
+
+</html>

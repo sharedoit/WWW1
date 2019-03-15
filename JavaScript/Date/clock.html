@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clock</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+    #box {
+        width: 600px;
+        height: 600px;
+        background: url("../../image/2.jpg") no-repeat;
+        margin: 100px auto;
+        position: relative;
+    }
+
+    #hour, #munite, #second {
+        width: 30px;
+        height: 600px;
+        position: absolute;
+        left: 50%;
+        top: 0px;
+        margin-left: -15px;
+    }
+
+    #hour {
+        background: url("../../image/3.jpg") no-repeat;
+    }
+
+    #munite {
+        background: url("../../image/4.jpg");
+    }
+
+    #second {
+        background: url("../../image/5.jpg");
+    }
+</style>
+<body>
+<div id="box">
+    <div id="hour"></div>
+    <div id="munite"></div>
+    <div id="second"></div>
+</div>
+<script>
+    window.onload = function () {
+        var hour=$('hour');
+        var minute=$('munite');
+        var second=$('second');
+        console.log(hour, minute, second);
+        setInterval(function () {
+            var currentDate=new Date();
+            var milS=currentDate.getMilliseconds();
+            var s=currentDate.getSeconds()+milS/1000;
+            var m=currentDate.getMinutes()+s/60;
+            var h=currentDate.getHours()%12+m/60;
+        //    旋转
+            hour.style.transform='rotate('+h*30+'deg)'
+            minute.style.transform='rotate('+m*6+'deg)'
+            second.style.transform='rotate('+s*6+'deg)'
+
+
+        },10)
+
+    }
+
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+
+</script>
+</body>
+</html>

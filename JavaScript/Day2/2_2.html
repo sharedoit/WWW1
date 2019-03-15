@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day2</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: none;
+    }
+
+    #box {
+        width: 1000px;
+        height: 200px;
+        border: 1px solid #cccccc;
+        margin: 100px auto;
+        position: relative;
+        /*overflow: hidden;*/
+    }
+
+    #box ul {
+        width: 2000px;
+        position: absolute;
+        left: 0px;
+        top: 20px;
+    }
+
+    #box ul li {
+        float: left;
+    }
+
+    #box_bottom {
+        height: 25px;
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        background-color: #E8E8E8;
+
+    }
+
+    .mask {
+        width: 0px;
+        height: 25px;
+        left: 0px;
+        top: 0px;
+        background-color: red;
+        position: absolute;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+
+    img {
+        width: 120px;
+        height: 140px;
+    }
+</style>
+<body>
+<div id="box">
+    <ul id="box_top">
+        <li><img src="../../image/1.jpg" alt=""></li>
+        <li><img src="../../image/2.jpg" alt=""></li>
+        <li><img src="../../image/3.jpg" alt=""></li>
+        <li><img src="../../image/4.jpg" alt=""></li>
+        <li><img src="../../image/5.jpg" alt=""></li>
+        <li><img src="../../image/6.jpg" alt=""></li>
+        <li><img src="../../image/7.jpg" alt=""></li>
+        <li><img src="../../image/8.jpg" alt=""></li>
+        <li><img src="../../image/6.jpg" alt=""></li>
+        <li><img src="../../image/7.jpg" alt=""></li>
+        <li><img src="../../image/8.jpg" alt=""></li>
+
+    </ul>
+    <div id="box_bottom">
+        <span class="mask"></span>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box');
+        var box_top = document.getElementById('box_top');
+        var box_bottom=document.getElementById('box_bottom');
+        var mask = document.getElementsByClassName('mask')[0];
+
+        var mask_len=(box.offsetWidth/box_top.offsetWidth)*box.offsetWidth;
+        mask.style.width=mask_len+'px';
+
+        mask.onmousedown=function (event) {
+            var e=event || window.event;
+            offsetX=e.clientX-mask.offsetLeft;
+
+            document.onmousemove=function (event) {
+                e=event || window.event;
+                var x=e.clientX-offsetX;
+                console.log('clientX:'+e.clientX,'offsetX:'+offsetX);
+                if (x<0){
+                    x=0;
+                }else if (x>box_bottom.offsetWidth-mask.offsetWidth){
+                    x=box_bottom.offsetWidth-mask.offsetWidth;
+
+                }
+
+                mask.style.left=x+'px';
+                // console.log(mask.style.left);
+                var conten_len=(box_top.offsetWidth-box.offsetWidth)/(box.offsetWidth-mask.offsetWidth)*x;
+                box_top.style.left=-conten_len+'px';
+                return false;
+            }
+        }
+        document.onmouseup=function () {
+            document.onmousemove=null;
+        }
+
+
+    }
+</script>
+</body>
+</html>

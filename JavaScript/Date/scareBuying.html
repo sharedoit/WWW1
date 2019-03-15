@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scareBuying</title>
+    <style>
+        #time{
+            font-size: 40px;
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="time"></div>
+<script>
+    window.onload=function () {
+        var time=document.getElementById('time');
+        var nextDate=new Date('2019/4/1 12:00:00');
+
+        // console.log(nextTime, currentTime);
+        var timer=setInterval(function () {
+            var currentDate=new Date();
+            var currentTime=currentDate.getTime()
+            // console.log(currentTime)
+            var nextTime=nextDate.getTime()
+            // console.log(nextTime);
+            var allTime=(nextTime-currentTime)/1000;
+            // console.log(allTime);
+            var d=size(parseInt(allTime/3600/24));
+            var h=size(parseInt(allTime/3600%24));
+            var m=size(parseInt(allTime/60%60));
+            var s=size(parseInt(allTime%60));
+            s=size(s);
+            time.innerText='距离放假还有'+d+'天'+h+'小时'+m+'分钟'+s+'秒';
+
+            function size(num) {
+                return num>=10?num:'0'+num;
+            }
+
+
+        },1000)
+
+    }
+</script>
+</body>
+</html>

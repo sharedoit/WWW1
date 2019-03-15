@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>magnifying glass</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: none;
+    }
+
+    #list img {
+        vertical-align: top;
+    }
+
+    #box {
+        width: 350px;
+        height: 350px;
+        margin: 100px 0 0 100px;
+        position: relative;
+    }
+
+    #small_box {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #cccccc;
+        position: relative;
+    }
+
+    #small_box img {
+        width: 350px;
+        height: 350px;
+    }
+
+    #mask {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(255, 255, 0, .4);
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        cursor: move;
+        display: none;
+    }
+
+    #big_box {
+        width: 600px;
+        height: 600px;
+        border: 1px solid #cccccc;
+        overflow: hidden;
+        position: absolute;
+        left: 360px;
+        top: 0px;
+        display: none;
+    }
+
+    #big_box img {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+
+    #list {
+        margin: 20px 0 0 100px;
+
+    }
+
+    #list img {
+        margin: 5px;
+        border: 1px solid #cccccc;
+
+    }
+
+</style>
+<body>
+<div id="box">
+    <div id="small_box">
+        <img src="../../image/4.jpg">
+        <span id="mask"></span>
+    </div>
+    <div id="big_box">
+        <img src="../../image/4.jpg">
+    </div>
+</div>
+<div id="list">
+    <img src="../../image/4.jpg" alt="图片" width="50px" height="50px">
+    <img src="../../image/5.jpg" alt="图片" width="50px" height="50px">
+    <img src="../../image/6.jpg" alt="图片" width="50px" height="50px">
+</div>
+<script>
+    window.onload = function () {
+        var box = $('box');
+        // var small_box=$('small_box');
+        // var big_box=$('big_box');
+        var small_box = box.children[0];
+        var big_box = box.children[1];
+        console.log(small_box, big_box);
+        // var mask = $('mask');
+        var mask = small_box.children[1];
+        var big_img = big_box.children[0];
+        var small_box_img = small_box.children[0];
+        var list_img = document.getElementById('list').children;
+        //1.鼠标进入小盒子
+        small_box.onmouseover = function () {
+            mask.style.display = 'block';
+            big_box.style.display = 'block';
+
+            //1_1.监听鼠标移动
+            small_box.onmousemove = function (event) {
+                var e = event || window.event;
+                var pointX = e.clientX - small_box.offsetParent.offsetLeft - mask.offsetWidth * 0.5;
+                var pointY = e.clientY - small_box.offsetParent.offsetTop - mask.offsetHeight * 0.5;
+                // console.log(e.clientY,small_box.offsetParent.offsetLeft);
+
+                if (pointX < 0) {
+                    pointX = 0;
+
+                } else if (pointX >= small_box.offsetWidth - mask.offsetWidth) {
+                    pointX = small_box.offsetWidth - mask.offsetWidth;
+                }
+
+                if (pointY < 0) {
+                    pointY = 0;
+                } else if (pointY >= small_box.offsetHeight - mask.offsetWidth) {
+                    pointY = small_box.offsetHeight - mask.offsetHeight;
+                }
+
+                console.log(pointX, pointY);
+                mask.style.left = pointX + 'px';
+                mask.style.top = pointY + 'px';
+
+
+                //    让大图移动
+                big_img.style.left = -pointX * big_box.offsetWidth / small_box.offsetWidth + 'px';
+                big_img.style.top = -pointY * big_box.offsetHeight / small_box.offsetHeight + 'px';
+            }
+
+        }
+        //2.鼠标在小盒子移动
+
+        //3.鼠标离开小盒子
+        small_box.onmouseout = function () {
+            mask.style.display = 'none';
+            big_box.style.display = 'none';
+        }
+
+        //    4.遍历列表图片
+        for (var i = 0; i < list_img.length; i++) {
+
+
+            // 闭包
+            (function (i) {
+                var img=list_img[i];
+                img.onmouseover=function () {
+                    small_box.children[0].src='../../image/'+(i+4)+'.jpg'
+                    big_img.src='../../image/'+(i+4)+'.jpg'
+                }
+            })(i)
+
+
+            /* list=list_img[i];
+
+             list.onmouseover=function () {
+
+                 // console.log(this.getAttribute('src'));
+                 small_box_img.setAttribute('src',this.getAttribute('src'))
+                 big_img.setAttribute('src',this.getAttribute('src'))
+             }*/
+        }
+
+
+    }
+
+
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+
+</script>
+</body>
+</html>

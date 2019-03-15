@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setInterval</title>
+</head>
+<button id="begin">开始</button>
+<button id="finish">结束</button>
+<body>
+<script>
+    window.onload=function () {
+        var height=150; var timer=null;
+        $('begin').onclick=function () {
+           timer= setInterval(function () {
+                height +=1
+                console.log(height);
+            },1000)
+        }
+        $('finish').onclick=function () {
+            clearInterval(timer);
+            console.log(timer);
+        }
+
+
+    }
+    function $(id) {
+        return typeof id==="string"?document.getElementById(id):null;
+    }
+</script>
+
+
+
+<script type="text/html">
+   window.onload=function () {
+       // setInterval(say,1000);
+       function say() {
+           console.log('hello world');
+       }
+
+       setInterval(function () {
+           console.log('haha');
+       },1000)
+   }
+</script>
+
+</body>
+</html>

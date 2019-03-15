@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="name" type="text" placeholder="请输入XXX">
+<script>
+    window.onload=function () {
+        // console.log($('name'));
+        $('name').onfocus=function () {
+            // alert('focus');
+            this.style.width='400px';
+            this.style.height='50px';
+            this.style.outline='none';
+            this.style.fontSize='30px';
+            this.style.border='1px solid blue';
+            this.style.color='black';
+        }
+        $('name').onblur=function () {
+            this.style.border='2px solid red';
+            this.style.color='red';
+        }
+
+    }
+    function $(id) {
+        return typeof id==="string"?document.getElementById(id):null;
+    }
+</script>
+
+</body>
+</html>

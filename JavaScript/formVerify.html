@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formVerify</title>
+</head>
+<body>
+<style>
+    #prompt {
+        font-size: 13px;
+        color: darkgrey;
+    }
+
+    #score {
+        border: 1px solid darkgray;
+        font-size: 20px;
+    }
+
+    .right {
+        background: url("./ico/1.jpg") no-repeat 5px center;
+        background-size: 15px 15px;
+        padding-left: 25px;
+        color: lightgreen !important;
+    }
+
+    .error {
+        background: url("./ico/2.jpg") no-repeat 5px center;
+        background-size: 15px 15px;
+        padding-left: 25px;
+        color: red !important;
+    }
+</style>
+<div id="box">
+    <label>输入成绩：</label>
+    <input id="score" type="text" placeholder="请输入你的成绩">
+    <span id="prompt">请输入您的成绩！</span>
+</div>
+<script>
+    window.onload = function () {
+        $('score').onblur = function () {
+
+            var value = parseFloat($('score').value);
+
+
+            if (isNaN(value)) {
+                $('prompt').className = 'error';
+                $('prompt').innerText = '您输入的不是一个数字';
+                $('score').style.borderColor = 'red';
+            } else if (value > 0 && value <= 100) {
+                $('prompt').className = 'right';
+                $('prompt').innerText = '您输入的成绩正确';
+                $('score').style.borderColor = 'lightgray';
+            } else {
+                $('prompt').className = 'error';
+                $('prompt').innerText = '您输入成绩必须在0—100之间';
+                $('score').style.borderColor = 'red';
+
+
+            }
+
+
+        }
+        $('score').onfocus=function () {
+            $('prompt').className = 'none';
+            $('prompt').innerText = '请输入您的成绩！';
+            $('score').style.borderColor='dargray';
+            // $('score').style.color='darkgray';
+            $('score').style.outline='none';
+            $('score').value=null;
+
+        }
+
+
+    }
+
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+</script>
+</body>
+</html>

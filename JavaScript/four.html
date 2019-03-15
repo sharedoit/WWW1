@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cloneNode</title>
+</head>
+<body>
+<div id="container">
+    <p>cloneNode</p>
+    <button class="btn">button</button>
+    <img src="../image/1.jpg" alt="图片">
+</div>
+<script type="text/html">
+    window.onload=function () {
+        var div1=document.getElementById('container');
+        var newdiv1=div1.cloneNode(true)
+        // console.log(newdiv1);
+        // var body=document.getElementsByTagName('body')[0];
+        // div1.parentNode.appendChild(newdiv1);
+        document.body.appendChild(newdiv1);
+    }
+</script>
+<script>
+    window.onload=function () {
+        var img=document.getElementsByTagName('img')[0];
+        var attributeList=img.getAttribute('src');
+        console.log(attributeList);
+        console.log(img.getAttribute('alt'));
+        img.setAttribute('width','400px');
+        img.removeAttribute('alt');
+    }
+</script>
+
+</body>
+</html>

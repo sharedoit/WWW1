@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>changeSkin</title>
+</head>
+<style type="text/css">
+    *{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        vertical-align: top;
+    }
+    body{
+        background: url("../image/2.jpg") no-repeat;
+        background-size: cover;
+    }
+    #box{
+        background-color: rgba(255,255,255,.5);
+    }
+    #box ul li img{
+        width:180px;
+        height: 120px;
+        margin: 20px auto;
+    }
+    #box ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+</style>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="../image/1.jpg" alt="图片1"></li>
+        <li><img src="../image/2.jpg" alt="图片2"></li>
+        <li><img src="../image/3.jpg" alt="图片3"></li>
+        <li><img src="../image/4.jpg" alt="图片4"></li>
+        <li><img src="../image/5.jpg" alt="图片5"></li>
+    </ul>
+</div>
+
+width="400px"
+<script>
+    window.onload = function () {
+        var box=document.getElementById('box');
+        var allLi=box.getElementsByTagName('li');
+
+        for (var i=0;i<allLi.length;i++){
+            var sli=allLi[i];
+            sli.index=i+1;
+            sli.onclick=function () {
+                document.body.style.background="url(\"../image/"+this.index+".jpg\") no-repeat"
+            }
+        }
+    }
+</script>
+</body>
+</html>
